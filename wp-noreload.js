@@ -19,6 +19,8 @@ jQuery(function($) {
 				$(selector).css({opacity: 0});
 				$(selector).animate({opacity: 1});
 			}
+
+			window.dispatchEvent(new Event("reload"));
 		});
 	}
 

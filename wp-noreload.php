@@ -3,7 +3,7 @@
  * Don't reload the page.
  *
  * Plugin Name:       No Reload
- * Version:           0.0.1
+ * Version:           0.0.2
  */
 
 define('NORELOAD_URL',plugin_dir_url(__FILE__));
