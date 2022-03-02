@@ -3,6 +3,7 @@
  * Don't reload the page.
  *
  * Plugin Name:       No Reload
+ * Description:       Don't reload on menu click.
  * Version:           0.0.2
  */
 
