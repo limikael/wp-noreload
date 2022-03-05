@@ -16,6 +16,16 @@
 			</tr>
 
 			<tr valign="top">
+				<th scope="row">Form Selector</th>
+				<td>
+					<input type="text" name="noreload_form_selector" 
+							value="<?php echo esc_attr(get_option("noreload_form_selector")); ?>"
+							class="regular-text"/>
+					<p class="description">Which form submissions should not reload the page.</p>
+				</td>
+			</tr>
+
+			<tr valign="top">
 				<th scope="row">Content Selectors</th>
 				<td>
 					<textarea name="noreload_content_selectors" 

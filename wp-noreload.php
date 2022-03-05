@@ -4,7 +4,7 @@
  *
  * Plugin Name:       No Reload
  * Description:       Don't reload on menu click.
- * Version:           0.0.2
+ * Version:           0.0.3
  */
 
 define('NORELOAD_URL',plugin_dir_url(__FILE__));
@@ -32,6 +32,7 @@ function noreload_wp_enqueue_scripts() {
 
 	wp_localize_script("noreload","noreload_settings",array(
 		"noreload_link_selector"=>get_option("noreload_link_selector"),
+		"noreload_form_selector"=>get_option("noreload_form_selector"),
 		"noreload_content_selectors"=>get_option("noreload_content_selectors"),
 	));
 }
@@ -50,6 +51,7 @@ function noreload_admin_menu() {
 add_action("admin_init","noreload_admin_init");
 function noreload_admin_init() {
 	register_setting("noreload","noreload_link_selector");
+	register_setting("noreload","noreload_form_selector");
 	register_setting("noreload","noreload_content_selectors");
 }
 
