@@ -1,10 +1,10 @@
 jQuery(function($) {
 	function installClickHandler() {
-		$(noreload_settings.noreload_link_selector).unbind("click",handleClick);
-		$(noreload_settings.noreload_link_selector).click(handleClick);
+		let linkSel=noreload_settings.noreload_link_selector;
+		let formSel=noreload_settings.noreload_form_selector;
 
-		$(noreload_settings.noreload_form_selector).unbind("submit",handleSubmit);
-		$(noreload_settings.noreload_form_selector).submit(handleSubmit);
+		$(document).on("click",linkSel,handleClick);
+		$(document).on("submit",formSel,handleSubmit);
 	}
 
 	function clearContentArea() {
@@ -31,13 +31,13 @@ jQuery(function($) {
 			$(selector).animate({opacity: 1});
 		}
 
-		for (let navEl of el.querySelectorAll(".nav-link.active")) {
+		for (let navEl of el.querySelectorAll("header .nav-link.active")) {
 			let href=$(navEl).attr("href");
-			$(".nav-link").filter("[href='"+href+"']").addClass("active");
+			$("header .nav-link").filter("[href='"+href+"']").addClass("active");
 		}
 
-		installClickHandler();
 		window.dispatchEvent(new Event("reload"));
+		window.scrollTo(0,0);
 	}
 
 	function loadPage(url) {
