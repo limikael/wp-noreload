@@ -8,6 +8,8 @@ jQuery(function($) {
 	}
 
 	function clearContentArea() {
+		$(".nav-link").removeClass("active");
+
 		let selectors=noreload_settings.noreload_content_selectors.split("\n");
 		for (let selector of selectors) {
 			selector=selector.trim();
@@ -27,6 +29,11 @@ jQuery(function($) {
 			$(selector).replaceWith(elem);
 			$(selector).css({opacity: 0});
 			$(selector).animate({opacity: 1});
+		}
+
+		for (let navEl of el.querySelectorAll(".nav-link.active")) {
+			let href=$(navEl).attr("href");
+			$(".nav-link").filter("[href='"+href+"']").addClass("active");
 		}
 
 		installClickHandler();

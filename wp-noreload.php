@@ -3,8 +3,8 @@
  * Don't reload the page.
  *
  * Plugin Name:       No Reload
- * Description:       Don't reload on menu click.
- * Version:           0.0.3
+ * Description:       Don't reload on link clicks and form submits.
+ * Version:           0.0.4
  */
 
 define('NORELOAD_URL',plugin_dir_url(__FILE__));
