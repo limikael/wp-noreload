@@ -8,6 +8,14 @@ jQuery(function($) {
 	}
 
 	function clearContentArea() {
+		let toggleEl=document.querySelector("button.navbar-toggler");
+		let barEl=document.querySelector(".navbar-collapse");
+
+		if ($(toggleEl).is(":visible") && $(barEl).is(":visible")) {
+			for (let navEl of document.querySelectorAll(".navbar-collapse"))
+				new bootstrap.Collapse(navEl);
+		}
+
 		$(".nav-link").removeClass("active");
 
 		let selectors=noreload_settings.noreload_content_selectors.split("\n");
@@ -38,6 +46,8 @@ jQuery(function($) {
 
 		window.dispatchEvent(new Event("reload"));
 		window.scrollTo(0,0);
+
+		$(window).trigger("resize");
 	}
 
 	function loadPage(url) {
@@ -58,14 +68,6 @@ jQuery(function($) {
 	}
 
 	function handleClick() {
-		let toggleEl=document.querySelector("button.navbar-toggler");
-		let barEl=document.querySelector(".navbar-collapse");
-
-		if ($(toggleEl).is(":visible") && $(barEl).is(":visible")) {
-			for (let navEl of document.querySelectorAll(".navbar-collapse"))
-				new bootstrap.Collapse(navEl);
-		}
-
 		let url=$(this).attr("href");
 
 		let state={url: url};
