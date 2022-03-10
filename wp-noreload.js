@@ -48,6 +48,9 @@ jQuery(function($) {
 		window.scrollTo(0,0);
 
 		$(window).trigger("resize");
+
+		let tab=$(".um-account-main").attr("data-current_tab");
+		$(".um-account-tab[data-tab="+tab+"]").show();
 	}
 
 	function loadPage(url) {
