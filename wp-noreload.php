@@ -4,7 +4,7 @@
  *
  * Plugin Name:       No Reload
  * Description:       Don't reload on link clicks and form submits.
- * Version:           0.0.7
+ * Version:           0.0.8
  */
 
 define('NORELOAD_URL',plugin_dir_url(__FILE__));

@@ -4,6 +4,7 @@ jQuery(function($) {
 		let formSel=noreload_settings.noreload_form_selector;
 
 		$(document).on("click",linkSel,handleClick);
+		$(document).on("click",formSel,handleSubmitClick);
 		$(document).on("submit",formSel,handleSubmit);
 	}
 
@@ -58,9 +59,23 @@ jQuery(function($) {
 		$.get(url,populateContentArea);
 	}
 
+	function handleSubmitClick(ev) {
+		if ($(ev.target).attr("type")=="submit") {
+			$(this).data("submitName",$(ev.target).attr("name"));
+			$(this).data("submitVal",$(ev.target).val());
+		}
+	}
+
 	function handleSubmit() {
+		let data=$(this).serializeArray();
+		if ($(this).data("submitName")) {
+			data.push({
+				name: $(this).data("submitName"),
+				value: $(this).data("submitVal")
+			});
+		}
+
 		clearContentArea();
-		let data=$(this).serialize();
 
 		let url=$(this).attr("action");
 		if (!url)
