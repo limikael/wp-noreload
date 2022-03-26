@@ -9,6 +9,8 @@ jQuery(function($) {
 	}
 
 	function clearContentArea() {
+		window.dispatchEvent(new Event("beforereload"));
+
 		let toggleEl=document.querySelector("button.navbar-toggler");
 		let barEl=document.querySelector(".navbar-collapse");
 
